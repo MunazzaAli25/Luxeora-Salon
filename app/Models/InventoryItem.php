@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class InventoryItem extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'category',
+        'quantity',
+        'unit_cost',
+        'reorder_level',
+    ];
+
+    public function purchaseOrders()
+    {
+        return $this->hasMany(PurchaseOrder::class);
+    }
+}
